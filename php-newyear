@@ -1,0 +1,23 @@
+<?php
+
+// Set the timezone
+date_default_timezone_set('Your_Timezone'); // Replace 'Your_Timezone' with your desired timezone (e.g., 'America/New_York')
+
+// Calculate the time remaining until New Year's Eve
+$currentYear = date('Y');
+$newYearEve = strtotime('December 31, ' . $currentYear . ' 23:59:59');
+$timeRemaining = $newYearEve - time();
+
+// Convert the time remaining into days, hours, minutes, and seconds
+$days = floor($timeRemaining / (60 * 60 * 24));
+$hours = floor(($timeRemaining % (60 * 60 * 24)) / (60 * 60));
+$minutes = floor(($timeRemaining % (60 * 60)) / 60);
+$seconds = $timeRemaining % 60;
+
+// Format the countdown
+$countdown = sprintf('%02d days %02d hours %02d minutes %02d seconds', $days, $hours, $minutes, $seconds);
+
+// Display the countdown
+echo 'Countdown to New Year: ' . $countdown;
+
+?>
